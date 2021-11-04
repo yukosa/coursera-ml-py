@@ -12,8 +12,7 @@ data = np.loadtxt('ex1data1.txt', delimiter=',', usecols=(0, 1))
 X = data[:, 0]
 y = data[:, 1]
 m = y.size
-
-plt.ion()
+plt.ioff()
 plt.figure(0)
 plot_data(X, y)
 
@@ -23,8 +22,9 @@ input('Program paused. Press ENTER to continue')
 print('Running Gradient Descent...')
 
 X = np.c_[np.ones(m), X]  # Add a column of ones to X
+print(X)
 theta = np.zeros(2)  # initialize fitting parameters
-
+print(theta)
 # Some gradient descent settings
 iterations = 1500
 alpha = 0.01
@@ -78,5 +78,5 @@ plt.figure(2)
 lvls = np.logspace(-2, 3, 20)
 plt.contour(xs, ys, J_vals, levels=lvls, norm=LogNorm())
 plt.plot(theta[0], theta[1], c='r', marker="x")
-
+# plt.show()
 input('ex1 Finished. Press ENTER to exit')

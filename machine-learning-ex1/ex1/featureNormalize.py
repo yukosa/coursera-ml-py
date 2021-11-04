@@ -24,9 +24,11 @@ def feature_normalize(X):
     # Hint: You might find the 'np.mean' and 'np.std' functions useful.
     #       To get the same result as Octave 'std', use np.std(X, 0, ddof=1)
     #
-
-
-
+    mu = X.mean(axis = 0)
+    sigma = X.std(axis = 0)
+    for j in range (n):
+        for i in range(X.shape[0]):
+            X_norm[i][j] = (X[i][j]-mu[j])/sigma[j]
     # ===========================================================
 
     return X_norm, mu, sigma
